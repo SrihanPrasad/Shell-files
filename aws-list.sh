@@ -6,8 +6,8 @@ if [ $# -ne 2 ]; then
 	exit 1
 fi
 
-aws_region = $1
-aws_service = $2
+aws_region=$1
+aws_service=$2
 
 if ! command -v aws &> /dev/null; then
 	echo "AWS cli is not installed"
@@ -19,7 +19,7 @@ if [ ! -d ~/.aws ]; then
 	exit 1
 fi
 
-case aws_service in
+case $aws_service in
 	ec2)
 		echo "listing aws_instance in $aws_region"
 		aws ec2 describe-instances --region $aws_region
